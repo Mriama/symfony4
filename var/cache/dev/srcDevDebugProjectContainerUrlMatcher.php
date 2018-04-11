@@ -84,6 +84,30 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         }
         not_search:
 
+        // localite
+        if ('/localite' === $pathinfo) {
+            $ret = array (  '_controller' => 'App\\Controller\\ApiController::getLocaliteAction',  '_route' => 'localite',);
+            if (!in_array($canonicalMethod, array('GET'))) {
+                $allow = array_merge($allow, array('GET'));
+                goto not_localite;
+            }
+
+            return $ret;
+        }
+        not_localite:
+
+        // type
+        if ('/type' === $pathinfo) {
+            $ret = array (  '_controller' => 'App\\Controller\\ApiController::gettypeAction',  '_route' => 'type',);
+            if (!in_array($canonicalMethod, array('GET'))) {
+                $allow = array_merge($allow, array('GET'));
+                goto not_type;
+            }
+
+            return $ret;
+        }
+        not_type:
+
         if ('/' === $pathinfo) {
             throw new Symfony\Component\Routing\Exception\NoConfigurationException();
         }

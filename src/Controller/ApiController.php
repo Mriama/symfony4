@@ -170,11 +170,10 @@ class ApiController extends Controller
     {
         $repository = $this->getDoctrine()->getRepository(Bien::class);
         $bien = $repository->find($id);
-        // foreach($biens as $key=>$values){
-        //     foreach($values->getImages() as $key=>$images){
-        //         $images->setImage(base64_encode(stream_get_contents($images->getImage())));
-        //     }
-        // }
+            
+                foreach($bien->getImages() as $key=>$images){
+                $images->setImage(base64_encode(stream_get_contents($images->getImage())));
+            }
 
         if($bien==null){
             $response =array(
@@ -201,7 +200,7 @@ class ApiController extends Controller
 
 
 
-/**
+    /**
      * search a bien.
      *
      * @FOSRest\Post("/search" ,name="search")
@@ -243,5 +242,76 @@ class ApiController extends Controller
     }
 
 
+
+
+    /**
+     * Lists all localite.
+     * @FOSRest\Get("/localite" , name="localite")
+     *
+     * @return array
+     */
+    public function getLocaliteAction(Request $request)
+    {
+        $repository = $this->getDoctrine()->getRepository(Localite::class);
+        $localite = $repository->findall();
+        
+        if(!count($localite)){
+            $response =array(
+                "code"=>false,
+                "msg"=>"aucune localite",
+                "error"=>null,
+                "data"=>null,
+
+            );
+            return new JsonResponse($response, Response::HTTP_NOT_FOUND);
+        }
+
+        $data = $this->get('jms_serializer')->serialize($localite, 'json');
+
+            $response =array(
+                "code"=>true,
+                "msg"=>"liste des localite",
+                "error"=>null,
+                "data"=>json_decode($data)
+            );
+            return new JsonResponse($response,201);
+
+}
+
+
+
+ /**
+     * Lists all typebien.
+     * @FOSRest\Get("/type" , name="type")
+     *
+     * @return array
+     */
+    public function gettypeAction(Request $request)
+    {
+        $repository = $this->getDoctrine()->getRepository(Typebien::class);
+        $type = $repository->findall();
+        
+        if(!count($type)){
+            $response =array(
+                "code"=>false,
+                "msg"=>"aucun type",
+                "error"=>null,
+                "data"=>null,
+
+            );
+            return new JsonResponse($response, Response::HTTP_NOT_FOUND);
+        }
+
+        $data = $this->get('jms_serializer')->serialize($type, 'json');
+
+            $response =array(
+                "code"=>true,
+                "msg"=>"liste des type",
+                "error"=>null,
+                "data"=>json_decode($data)
+            );
+            return new JsonResponse($response,201);
+
+}
 
 }
