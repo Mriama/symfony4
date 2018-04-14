@@ -31,6 +31,7 @@ final class Versions
   'jms/parser-lib' => '1.0.0@c509473bc1b4866415627af0e1c6cc8ac97fa51d',
   'jms/serializer' => '1.11.0@e7c53477ff55c21d1b1db7d062edc050a24f465f',
   'jms/serializer-bundle' => '2.3.1@9dec7ab62248aa97f33cce70c301af15154f8f0b',
+  'nelmio/cors-bundle' => '1.5.4@548dc8ebd3984acd2f6d8787ab1dac2e9aa14254',
   'nikic/php-parser' => 'v4.0.1@e4a54fa90a5cd8e8dd3fb4099942681731c5cdd3',
   'ocramius/package-versions' => '1.3.0@4489d5002c49d55576fa0ba786f42dbb009be46f',
   'ocramius/proxy-manager' => '2.2.0@81d53b2878f1d1c40ad27270e64b51798485dfc5',
@@ -69,11 +70,11 @@ final class Versions
   'symfony/dotenv' => 'v4.0.7@afb6923923e22874dac20bd042167ccb8df1d158',
   'symfony/process' => 'v4.0.7@d7dc1ee5dfe9f732cb1bba7310f5b99f2b7a6d25',
   'symfony/web-server-bundle' => 'v4.0.7@20ad52df8164d2eae029e6bb24356956c52380be',
-  'symfony/polyfill-iconv' => '*@',
-  'symfony/polyfill-php71' => '*@',
-  'symfony/polyfill-php70' => '*@',
-  'symfony/polyfill-php56' => '*@',
-  '__root__' => 'No version set (parsed as 1.0.0)@',
+  'symfony/polyfill-iconv' => '*@6a45ef96d2751f27f77feb680b881152cb6b9955',
+  'symfony/polyfill-php71' => '*@6a45ef96d2751f27f77feb680b881152cb6b9955',
+  'symfony/polyfill-php70' => '*@6a45ef96d2751f27f77feb680b881152cb6b9955',
+  'symfony/polyfill-php56' => '*@6a45ef96d2751f27f77feb680b881152cb6b9955',
+  '__root__' => 'dev-master@6a45ef96d2751f27f77feb680b881152cb6b9955',
 );
 
     private function __construct()

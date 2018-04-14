@@ -176,6 +176,182 @@ class Client extends \App\Entity\Client implements \Doctrine\ORM\Proxy\Proxy
     /**
      * {@inheritDoc}
      */
+    public function getTelclient()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getTelclient', []);
+
+        return parent::getTelclient();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setTelclient($telclient)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setTelclient', [$telclient]);
+
+        return parent::setTelclient($telclient);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAdressclient()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAdressclient', []);
+
+        return parent::getAdressclient();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setAdressclient($adressclient)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAdressclient', [$adressclient]);
+
+        return parent::setAdressclient($adressclient);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getNumeropiece()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getNumeropiece', []);
+
+        return parent::getNumeropiece();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setNumeropiece($numeropiece)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setNumeropiece', [$numeropiece]);
+
+        return parent::setNumeropiece($numeropiece);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getNomclient()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getNomclient', []);
+
+        return parent::getNomclient();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setNomclient($nomclient)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setNomclient', [$nomclient]);
+
+        return parent::setNomclient($nomclient);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getMailclient()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getMailclient', []);
+
+        return parent::getMailclient();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setMailclient($mailclient)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setMailclient', [$mailclient]);
+
+        return parent::setMailclient($mailclient);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getReservation()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getReservation', []);
+
+        return parent::getReservation();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setReservation($reservation)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setReservation', [$reservation]);
+
+        return parent::setReservation($reservation);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getContrat()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getContrat', []);
+
+        return parent::getContrat();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setContrat($contrat)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setContrat', [$contrat]);
+
+        return parent::setContrat($contrat);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getPassword()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPassword', []);
+
+        return parent::getPassword();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setPassword($password)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPassword', [$password]);
+
+        return parent::setPassword($password);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function getId()
     {
         if ($this->__isInitialized__ === false) {
@@ -191,133 +367,12 @@ class Client extends \App\Entity\Client implements \Doctrine\ORM\Proxy\Proxy
     /**
      * {@inheritDoc}
      */
-    public function getNumeropiece(): ?string
+    public function setId($id)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getNumeropiece', []);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setId', [$id]);
 
-        return parent::getNumeropiece();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setNumeropiece(string $numeropiece): \App\Entity\Client
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setNumeropiece', [$numeropiece]);
-
-        return parent::setNumeropiece($numeropiece);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getNomclient(): ?string
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getNomclient', []);
-
-        return parent::getNomclient();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setNomclient(string $nomclient): \App\Entity\Client
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setNomclient', [$nomclient]);
-
-        return parent::setNomclient($nomclient);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getTelclient(): ?int
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getTelclient', []);
-
-        return parent::getTelclient();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setTelclient(int $telclient): \App\Entity\Client
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setTelclient', [$telclient]);
-
-        return parent::setTelclient($telclient);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getAdressclient(): ?string
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAdressclient', []);
-
-        return parent::getAdressclient();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setAdressclient(string $adressclient): \App\Entity\Client
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAdressclient', [$adressclient]);
-
-        return parent::setAdressclient($adressclient);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getMailclient(): ?string
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getMailclient', []);
-
-        return parent::getMailclient();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setMailclient(string $mailclient): \App\Entity\Client
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setMailclient', [$mailclient]);
-
-        return parent::setMailclient($mailclient);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getPassword(): ?string
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPassword', []);
-
-        return parent::getPassword();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setPassword(string $password): \App\Entity\Client
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPassword', [$password]);
-
-        return parent::setPassword($password);
+        return parent::setId($id);
     }
 
 }

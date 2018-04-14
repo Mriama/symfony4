@@ -61,8 +61,8 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         }
 
         // reservation
-        if ('/reservation' === $pathinfo) {
-            $ret = array (  '_controller' => 'App\\Controller\\ApiController::addReservAction',  '_route' => 'reservation',);
+        if (0 === strpos($pathinfo, '/reservation') && preg_match('#^/reservation/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
+            $ret = $this->mergeDefaults(array_replace($matches, array('_route' => 'reservation')), array (  '_controller' => 'App\\Controller\\ApiController::addReservAction',));
             if (!in_array($requestMethod, array('POST'))) {
                 $allow = array_merge($allow, array('POST'));
                 goto not_reservation;

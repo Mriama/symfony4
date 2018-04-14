@@ -83,28 +83,30 @@ class ApiController extends Controller
 
 
     /**
-     * @FOSRest\Post("/reservation" , name="reservation")
+     * @FOSRest\Post("/reservation/{id}" , name="reservation")
      *
      * @return array
      */
-    public function addReservAction(Request $request)
+    public function addReservAction(Request $request,$id)
     {
 
-        $idbien = $request->get('idbien');
+        $idbien = $request->get('id');
         $idclient = $request->get('idclient');
         if(empty($idclient))
         {
-              $infoClient = $request->get('client');
+             $data=$request->getContent();
+             $clients=$this->get('jms_serializer')->deserialize($data,'App\Entity\Client','json');
+            var_dump($clients->getTelclient('telclient'));
 
-            if(!empty($infoClient))
+            if(!empty($clients))
             {
                 $newClient = new Client();
-                $newClient->setNumeropiece($infoClient['numeropiece']);
-                $newClient->setNomclient($infoClient['nomclient']);
-                $newClient->setTelclient($infoClient['tel']);
-                $newClient->setAdressclient($infoClient['adresse']);
-                $newClient->setMailclient($infoClient['email']);
-                $newClient->setPassword($infoClient['password']);
+                $newClient->setNumeropiece($clients->getNumeropiece('numeropiece'));
+                $newClient->setNomclient($clients->getNomclient('nomclient'));
+                $newClient->setTelclient($clients->getTelclient('telclient'));
+                $newClient->setAdressclient($clients->getAdressclient('adressclient'));
+                $newClient->setMailclient($clients->getMailclient('mailclient'));
+                $newClient->setPassword($clients->getPassword('password'));
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($newClient);
                 $em->flush();
@@ -128,7 +130,7 @@ class ApiController extends Controller
         $idbien = $em->getRepository(Bien::class)->find($idbien);
         $user = $em->getRepository(Client::class)->find($idclient);
 
-        if (empty($user) || empty($idbien)) 
+        if (empty($user) || empty($idbien))
         {
             $response = array(
                 'code' => 0,
@@ -139,7 +141,7 @@ class ApiController extends Controller
             return new JsonResponse($reponse, Response::HTTP_BAD_REQUEST);
         }
 
-       
+
         $reserv = new Reservation();
         $reserv->setDatereserv(new \DateTime());
         $reserv->setEtat(0);
@@ -157,7 +159,7 @@ class ApiController extends Controller
         );
 
         return new JsonResponse($response, Response::HTTP_CREATED);
-        
+
     }
 
   /**
@@ -170,7 +172,7 @@ class ApiController extends Controller
     {
         $repository = $this->getDoctrine()->getRepository(Bien::class);
         $bien = $repository->find($id);
-            
+
                 foreach($bien->getImages() as $key=>$images){
                 $images->setImage(base64_encode(stream_get_contents($images->getImage())));
             }
@@ -254,7 +256,7 @@ class ApiController extends Controller
     {
         $repository = $this->getDoctrine()->getRepository(Localite::class);
         $localite = $repository->findall();
-        
+
         if(!count($localite)){
             $response =array(
                 "code"=>false,
@@ -280,7 +282,7 @@ class ApiController extends Controller
 
 
 
- /**
+   /**
      * Lists all typebien.
      * @FOSRest\Get("/type" , name="type")
      *
@@ -290,7 +292,7 @@ class ApiController extends Controller
     {
         $repository = $this->getDoctrine()->getRepository(Typebien::class);
         $type = $repository->findall();
-        
+
         if(!count($type)){
             $response =array(
                 "code"=>false,

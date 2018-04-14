@@ -53,6 +53,7 @@ class ComposerStaticInit6822868f6b8adde9970111698f329374
         ),
         'N' => 
         array (
+            'Nelmio\\CorsBundle\\' => 18,
             'Negotiation\\' => 12,
         ),
         'J' => 
@@ -207,6 +208,10 @@ class ComposerStaticInit6822868f6b8adde9970111698f329374
         'PackageVersions\\' => 
         array (
             0 => __DIR__ . '/..' . '/ocramius/package-versions/src/PackageVersions',
+        ),
+        'Nelmio\\CorsBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/nelmio/cors-bundle',
         ),
         'Negotiation\\' => 
         array (
