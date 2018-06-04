@@ -78,4 +78,24 @@ class Paiement
 
         return $this;
     }
+
+    /**
+     * Get the value of contrat
+     */ 
+    public function getContrat()
+    {
+        return $this->contrat;
+    }
+
+    /**
+     * Set the value of contrat
+     *
+     * @return  self
+     */ 
+    public function setContrat($contrat)
+    {
+        $this->contrat = $contrat;
+
+        return $this;
+    }
 }

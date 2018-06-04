@@ -60,4 +60,15 @@ class BienRepository extends ServiceEntityRepository
 
     return $query->getQuery()->getResult();
 }
+public function updateEtatBien($id)
+    {
+
+       $dql =   "UPDATE  App\Entity\Bien b
+       SET b.etat = 1 WHERE b.id = :id";
+
+        $query = $this->getEntityManager()->createQuery($dql);
+        $query->setParameter('id', $id);
+
+          return $query->getResult();
+    }
 }

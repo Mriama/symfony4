@@ -84,6 +84,18 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         }
         not_search:
 
+        // saveContrat
+        if (0 === strpos($pathinfo, '/saveContrat') && preg_match('#^/saveContrat/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
+            $ret = $this->mergeDefaults(array_replace($matches, array('_route' => 'saveContrat')), array (  '_controller' => 'App\\Controller\\ApiController::saveContrat',));
+            if (!in_array($requestMethod, array('POST'))) {
+                $allow = array_merge($allow, array('POST'));
+                goto not_saveContrat;
+            }
+
+            return $ret;
+        }
+        not_saveContrat:
+
         // localite
         if ('/localite' === $pathinfo) {
             $ret = array (  '_controller' => 'App\\Controller\\ApiController::getLocaliteAction',  '_route' => 'localite',);
@@ -107,6 +119,45 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return $ret;
         }
         not_type:
+
+        // connexion
+        if (0 === strpos($pathinfo, '/connexion') && preg_match('#^/connexion/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
+            $ret = $this->mergeDefaults(array_replace($matches, array('_route' => 'connexion')), array (  '_controller' => 'App\\Controller\\ApiController::ConnexionAction',));
+            if (!in_array($requestMethod, array('POST'))) {
+                $allow = array_merge($allow, array('POST'));
+                goto not_connexion;
+            }
+
+            return $ret;
+        }
+        not_connexion:
+
+        if (0 === strpos($pathinfo, '/Reservation')) {
+            // Reservation
+            if ('/Reservation' === $pathinfo) {
+                $ret = array (  '_controller' => 'App\\Controller\\ApiController::getReservation',  '_route' => 'Reservation',);
+                if (!in_array($canonicalMethod, array('GET'))) {
+                    $allow = array_merge($allow, array('GET'));
+                    goto not_Reservation;
+                }
+
+                return $ret;
+            }
+            not_Reservation:
+
+            // ReservationId
+            if (0 === strpos($pathinfo, '/ReservationId') && preg_match('#^/ReservationId/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
+                $ret = $this->mergeDefaults(array_replace($matches, array('_route' => 'ReservationId')), array (  '_controller' => 'App\\Controller\\ApiController::getOneReservation',));
+                if (!in_array($canonicalMethod, array('GET'))) {
+                    $allow = array_merge($allow, array('GET'));
+                    goto not_ReservationId;
+                }
+
+                return $ret;
+            }
+            not_ReservationId:
+
+        }
 
         if ('/' === $pathinfo) {
             throw new Symfony\Component\Routing\Exception\NoConfigurationException();

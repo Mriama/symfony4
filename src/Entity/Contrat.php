@@ -87,4 +87,66 @@ class Contrat
 
         return $this;
     }
+
+    /**
+     * Get the value of bien
+     */ 
+    public function getBien()
+    {
+        return $this->bien;
+    }
+
+    /**
+     * Set the value of bien
+     *
+     * @return  self
+     */ 
+    public function setBien($bien)
+    {
+        $this->bien = $bien;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of client
+     */ 
+    public function getClient()
+    {
+        return $this->client;
+    }
+
+    /**
+     * Set the value of client
+     *
+     * @return  self
+     */ 
+    public function setClient($client)
+    {
+        $this->client = $client;
+
+        return $this;
+    }
+
+        /**
+         * Get the value of paiement
+         */ 
+        public function getPaiement()
+        {
+                return $this->paiement;
+        }
+
+        /**
+         * Set the value of paiement
+         *
+         * @return  self
+         */ 
+        public function setPaiement($paiement)
+        {
+                $this->paiement = $paiement;
+
+                return $this;
+        }
+
+        
 }
